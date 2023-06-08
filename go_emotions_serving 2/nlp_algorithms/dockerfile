@@ -1,0 +1,20 @@
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim-buster
+
+# Set the working directory in the container to /app
+WORKDIR /nlp_algorithms_app
+
+# Add the current directory contents into the container at /app
+ADD . /nlp_algorithms_app
+
+# Copy the tfidf.pkl file into the Docker image
+COPY xgboost_model.model /nlp_algorithms_app/xgboost_model.model
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir fastapi pydantic uvicorn xgboost scipy
+
+# Make port 80 available to the world outside this container
+EXPOSE 4000
+
+# Run app.py when the container launches
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "4000"]

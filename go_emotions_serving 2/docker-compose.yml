@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  nginx_proxy:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - entry_point_service
+    
+  entry_point_service:
+    build: ./entry_point
+    ports:
+      - "1550:1550"
+    volumes:
+      - ./logs:/app/logs
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "1550"]
+  
+  nlp_algorithms_service:
+    build: ./nlp_algorithms
+    ports:
+      - "4000:4000"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "4000"]
+
+  preprocessing_service:
+    build: ./data_preprocessing
+    ports:
+      - "2000:2000"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "2000"]
+
+  featurization_service:
+    build: ./featurization
+    ports:
+      - "3000:3000"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "3000"]
