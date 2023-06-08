@@ -27,11 +27,10 @@ List the libraries and tools used in the project. For example:
 Instructions on how to install and run your code. For example:
 
 ```sh
-git clone https://github.com/yourusername/goemotions-text-classifier.git
-cd goemotions-text-classifier
-pip install -r requirements.txt
-python main.py
+git clone https://github.com/kashyapHebbar/NaturalLanguage.git
+cd go_emotions_serving 2
 ```
+
 
 ## Methodology
 
