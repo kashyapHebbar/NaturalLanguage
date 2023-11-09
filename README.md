@@ -134,6 +134,8 @@ cd go_emotions_serving 2
 - The distribution of text lengths in the training dataset was visualized, which can inform the choice of preprocessing techniques or model architecture.
 
 - **Convolutional Neural Network (CNN)**: The CNN models showed varying results. One implementation achieved a test accuracy of approximately 59.68%, indicating a moderate level of performance. Another CNN model, which used Binary Focal Loss and pre-trained Word2Vec embeddings, had a lower test accuracy of 29.38%, suggesting it struggled to generalize to new data. The document suggests that the CNN models may need further refinement in terms of architecture, hyperparameters, or preprocessing to achieve better accuracy.
+  ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/bc8c5e93-c5f1-4d9a-b2a3-43af0a15aa20)
+
 
 - **Random Forest**: The Random Forest Classifier, which used TfidfVectorizer for text data vectorization and was evaluated using K-Fold cross-validation, did not perform as well, with a test accuracy of 29%. This indicates that the model may not have been complex enough to capture the patterns in the data or that the data itself was challenging for this type of model.
 
