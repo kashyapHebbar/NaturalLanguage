@@ -154,7 +154,7 @@ cd go_emotions_serving 2
 - **XGBoost**: The document does not provide a specific accuracy for the XGBoost model, but as an optimized gradient boosting algorithm, it's typically known for its performance in various machine learning tasks.
    ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/9f63ddff-4b06-449a-a786-6a33c3a29195)
   
-- **Bi-Directional LSTM**: The Bi-Directional LSTM, which utilizes two LSTM layers to process data from both past and future states, is expected to perform well on sequential data like text gives the accuracy as 65 % .
+- **Bi-Directional LSTM**: The Bi-Directional LSTM, which utilizes two LSTM layers to process data from both past and future states, is expected to perform well on sequential data like text gives the accuracy as 55 % .
   ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/00957567-7351-4228-acbd-c2dfdafb900c)
 
 
