@@ -166,7 +166,27 @@ This summary encapsulates the key findings and outcomes of the experiments and a
 
 ## Future Improvements
 
-Outline any future improvements that could be made to this project, such as other models that could be tested or other data that could be used.
+1. **Model Refinement**: For models that did not perform as expected, consider hyperparameter tuning, adding additional layers, or employing more complex architectures. Addressing class imbalance with a class-weighted loss function could also be beneficial.
+
+2. **Efficiency vs. Quality**: For well-performing models, there's a possibility to increase efficiency by reducing complexity or adjusting learning parameters. This might involve a trade-off with accuracy, which should be carefully considered based on the application context.
+
+3. **Extended Training**: Some models might benefit from more training epochs or hyperparameter tuning to achieve better accuracy. Monitoring the gap between training and validation accuracy can help in identifying overfitting.
+
+4. **Feature Extraction and Preprocessing**: Further exploration of preprocessing techniques and feature extraction methods could lead to improvements. For instance, examining the impact of different featurization methods like TF-IDF, Bag of Words, and word embeddings on model performance.
+
+5. **Evaluation Metrics**: It's crucial to consider multiple evaluation metrics, such as accuracy, precision, recall, and F1 score, to gain a comprehensive understanding of a model's effectiveness.
+
+6. **Topic Modeling**: Refining topic modeling techniques like NMF and LSA could uncover more nuanced themes or patterns in the text data, which can be useful for improving the underlying structure of the dataset.
+
+7. **Semantic Meaning**: Bigram analysis and other n-gram techniques could be expanded to capture more semantic meaning in the text, which might improve the performance of emotion classification models.
+
+8. **Class Differentiation**: Investigating the linguistic characteristics of each emotion could reveal potential features for differentiation, which may help in improving the classification model.
+
+9. **Optimization Methods**: Evaluating different optimization methods and their parameters could lead to better model performance, as indicated by the success of Legacy_RMSprop in the document.
+
+10. **Class Merging**: The strategy of merging related emotion categories into broader classes could be refined to ensure that the model captures the nuances between different emotions effectively.
+
+These suggestions aim to build on the current work and guide future research and development efforts to enhance the performance and efficiency of the emotion classification models discussed in the document.
 
 ## Acknowledgements
 
