@@ -80,46 +80,76 @@ cd go_emotions_serving 2
 
 ## Methodology
 
+**Data Preprocessing and Feature Extraction:**
+1. **Text Length Distribution**: The methodology included calculating the text length of each sample and visualizing the distribution with a histogram, which informs the choice of preprocessing techniques or model architecture.
 
-1. **Preprocessing**:
-   - **Text Vectorization**: The text data is transformed into a numerical format using `TfidfVectorizer`, which suggests that Term Frequency-Inverse Document Frequency (TF-IDF) is used to give more weight to unique words in the documents.
-   - **Stop-word Removal**: Common words that are typically considered noise in text data (stop-words) are removed to focus on more meaningful words.
-   - **Lemmatization**: This step is implied to standardize words to their base or root form, which helps in reducing the complexity of the text data.
+**Natural Language Processing Algorithms:**
+2. **CNN**: A 1D Convolutional Neural Network model was implemented for NLP tasks using GloVe word embeddings for feature representation. The methodology involved loading embeddings, splitting data, tokenizing, padding sequences, encoding labels, and defining the CNN model with TensorFlow’s Keras API.
 
-2. **Feature Extraction**:
-   - **TF-IDF Representation**: This is used to convert text data into a matrix of TF-IDF features, which reflects how important a word is to a document in a collection or corpus.
-   - **Word Embeddings**: There is a mention of using Word2Vec to create word embeddings, which suggests that the project also explores dense vector representations of words that capture the context of a word in a document.
+3. **Random Forest Classifier**: The methodology included using TfidfVectorizer for text data vectorization, splitting data into training and testing sets, training the classifier, and evaluating it using K-Fold cross-validation.
 
-3. **Modeling**:
-   
-i. **Topic Modeling Techniques**:
-   - **Latent Semantic Analysis (LSA)**: This technique is used for extracting and representing the contextual-usage meaning of words by statistical computations applied to a large corpus of text. LSA is based on singular value decomposition (SVD) which reduces the dimensionality of the TF-IDF matrix, capturing the underlying structure in the data.
-   - **Latent Dirichlet Allocation (LDA)**: LDA is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. It's particularly used for identifying topics in a set of documents, assuming that each document is a mixture of a small number of topics.
-   - **Non-negative Matrix Factorization (NMF)**: NMF is a group of algorithms in multivariate analysis where a matrix V is factorized into (usually) two matrices W and H, with the property that all three matrices have no negative elements. This non-negativity makes the resulting matrices easier to inspect.
+4. **Latent Dirichlet Allocation (LDA)**: The approach used CountVectorizer for text data conversion into a bag-of-words representation, topic extraction using LDA, and visualization of the distribution of topics.
 
-ii. **Classification Models**:
-   - **Logistic Regression**: A statistical model that in its basic form uses a logistic function to model a binary dependent variable, although many more complex extensions exist. In the context of text classification, logistic regression can be used to predict the probability that a given text belongs to a certain category.
-   - **k-Nearest Neighbors (kNN)**: A non-parametric method used for classification and regression. In kNN classification, the output is a class membership. An object is classified by a plurality vote of its neighbors, with the object being assigned to the class most common among its k nearest neighbors.
-   - **1-Dimensional Convolutional Neural Network (1D CNN)**: A type of neural network that is particularly well-suited for processing sequences of data. For text, 1D CNNs can capture the spatial hierarchy in data by applying convolutional layers to the sequence, allowing the model to detect complex patterns such as phrases or sentences.
+5. **LSA (Latent Semantic Analysis)**: The methodology involved using TfidfVectorizer, splitting data, applying LSA for topic modeling, fitting the LSA model, and visualizing topic weights.
 
-4. **Model Evaluation**:
-   - **Accuracy and F1 Score**: These metrics are used to evaluate the overall performance of the models.
-   - **Classification Report**: Provides detailed performance metrics for each class, including precision, recall, and F1 score.
-   - **Confusion Matrix**: Visualizes the performance of the classification model, showing the correct and incorrect predictions across different classes.
+**Preprocessing Techniques:**
+6. **Removing Stop-words**: The text data was pre-processed by removing stopwords, using TfidfVectorizer with an additional stop-words parameter, splitting the dataset, training a logistic regression model, and evaluating the model’s performance.
 
-5. **Hyperparameter Tuning**:
-   - **Optimization**: For kNN, the optimal number of neighbors is determined by iterating through a range of values and evaluating the accuracy.
-   - **Fine-tuning**: The LDA model is fine-tuned by adjusting hyperparameters to better capture the underlying topics in the dataset.
+**Discussion of Best Results:**
+7. **Data Preprocessing**: Different preprocessing techniques were experimented with, such as lowercasing, removing stopwords, stemming, lemmatization, and removing special characters. Lowercasing yielded the best results.
 
-6. **Visualization**:
-   - **Box Plots**: Used to visualize the distribution of topic weights for the topic modeling methods, which helps in understanding the importance of each topic in the dataset.
-   - **Word Importance**: For LDA, the top words for each topic are displayed, providing insights into the prevalent themes.
-
-The methodology combines traditional machine learning techniques with more advanced models and a variety of preprocessing and feature extraction methods to analyze text data effectively. The approach is systematic and iterative, with an emphasis on both model performance and the interpretability of results.
+8. **Text Featurization**: Various text featurization methods were tested, including Bag Of Words, TF-IDF Vectorizer, Word Embeddings, N-grams, Bi-Grams, Tri-Grams, LDA, NMF, and LSA. The TF-IDF method showed the best performance.
 
 ## Results
 
-Summarize the results of your project. What kind of accuracy did you achieve? How well did your model perform? Add graphs or other visual aids if possible.
+**Data Preprocessing and Feature Extraction:**
+- **Lowercasing** as a preprocessing technique yielded the best results with an accuracy of 0.66 and a weighted F1 score of 0.65.
+- **TF-IDF Vectorization** method showed the best performance in text featurization with an accuracy of 0.65 and a weighted F1 score of 0.65.
+
+**Topic Modeling:**
+- **LSA**: Identified five topics with topic weights ranging from -0.6 to 0.8, indicating a mix of positive and negative weights for topics.
+- **NMF**: Revealed that Topic 4 had the highest median weight, suggesting higher importance in the dataset.
+
+**Word Embeddings:**
+- Utilized **pre-trained GloVe embeddings** to represent text, which is expected to capture semantic meaning effectively.
+- The logistic regression model trained with GloVe embeddings showed generally higher correct predictions on the confusion matrix.
+
+**Sentiment Analysis:**
+- The histogram of sentiment polarity scores ranged from -1 (most negative) to 1 (most positive), offering insights into the overall sentiment distribution within the dataset.
+
+**Model Performance:**
+- **Legacy_RMSprop** optimizer achieved the best test accuracy (0.524978) and test F1 score (0.486597).
+- **Adadelta** optimizer was noted for addressing the aggressive decrease in learning rates from Adagrad, resulting in a more robust optimization method.
+
+**Overall Outcome Evaluation:**
+- The project built emotion classification models using a variety of techniques and algorithms, including deep learning-based algorithms (GRU, Bi-Directional LSTM, CNN) and machine learning algorithms (kNN, XGBoost, Random Forest).
+
+**Discussion of Best Results:**
+- The best preprocessing results came from lowercasing, with an accuracy of 0.66 and a weighted F1 score of 0.65.
+- The best text featurization results were obtained using the TF-IDF method, with an accuracy of 0.65 and a weighted F1 score of 0.65.
+- The 3-grams model had the lowest accuracy at 0.40.
+
+**Additional Observations:**
+- The top 20 most frequent words in the text samples were identified, providing insights into the predominant topics and emotions present in the text samples.
+- The distribution of text lengths in the training dataset was visualized, which can inform the choice of preprocessing techniques or model architecture.
+
+- **Convolutional Neural Network (CNN)**: The CNN models showed varying results. One implementation achieved a test accuracy of approximately 59.68%, indicating a moderate level of performance. Another CNN model, which used Binary Focal Loss and pre-trained Word2Vec embeddings, had a lower test accuracy of 29.38%, suggesting it struggled to generalize to new data. The document suggests that the CNN models may need further refinement in terms of architecture, hyperparameters, or preprocessing to achieve better accuracy.
+
+- **Random Forest**: The Random Forest Classifier, which used TfidfVectorizer for text data vectorization and was evaluated using K-Fold cross-validation, did not perform as well, with a test accuracy of 29%. This indicates that the model may not have been complex enough to capture the patterns in the data or that the data itself was challenging for this type of model.
+
+- **GRU (Gated Recurrent Unit)**: The GRU model achieved a test accuracy of approximately 58%, which is a reasonable performance, especially considering that GRU is adept at handling sequential data and can capture temporal dependencies.
+
+- **k-Nearest Neighbors (kNN)**: The kNN model achieved an accuracy of 50%, which is on the lower end compared to deep learning models. This might be due to the high dimensionality of the data or the simplicity of the kNN algorithm, which relies on distance metrics for classification.
+
+- **XGBoost**: The document does not provide a specific accuracy for the XGBoost model, but as an optimized gradient boosting algorithm, it's typically known for its performance in various machine learning tasks.
+
+- **Bi-Directional LSTM**: The Bi-Directional LSTM, which utilizes two LSTM layers to process data from both past and future states, is expected to perform well on sequential data like text. However, the document does not specify its accuracy.
+
+In summary, the deep learning models, particularly the GRU, showed promising results, while traditional machine learning models like Random Forest and kNN displayed lower accuracy. The CNN's performance varied significantly depending on the specific implementation and choice of loss function. The document suggests that all models could potentially benefit from hyperparameter tuning and further refinement of their architectures.
+
+
+
+This summary encapsulates the key findings and outcomes of the experiments and analyses conducted in the project. The results indicate a nuanced understanding of the data and the performance of various models and techniques.
 
 ## Future Improvements
 
