@@ -131,6 +131,8 @@ cd go_emotions_serving 2
 
 **Additional Observations:**
 - The top 20 most frequent words in the text samples were identified, providing insights into the predominant topics and emotions present in the text samples.
+  ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/e17ce69d-3448-45be-9040-4c19662f5745)
+
 - The distribution of text lengths in the training dataset was visualized, which can inform the choice of preprocessing techniques or model architecture.
 
 - **Convolutional Neural Network (CNN)**: The CNN models showed varying results. One implementation achieved a test accuracy of approximately 59.68%, indicating a moderate level of performance. Another CNN model, which used Binary Focal Loss and pre-trained Word2Vec embeddings, had a lower test accuracy of 29.38%, suggesting it struggled to generalize to new data. The document suggests that the CNN models may need further refinement in terms of architecture, hyperparameters, or preprocessing to achieve better accuracy.
@@ -138,14 +140,23 @@ cd go_emotions_serving 2
 
 
 - **Random Forest**: The Random Forest Classifier, which used TfidfVectorizer for text data vectorization and was evaluated using K-Fold cross-validation, did not perform as well, with a test accuracy of 29%. This indicates that the model may not have been complex enough to capture the patterns in the data or that the data itself was challenging for this type of model.
+  ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/c09eb203-168e-49c6-9d09-cb23635d3c2f)
+
 
 - **GRU (Gated Recurrent Unit)**: The GRU model achieved a test accuracy of approximately 58%, which is a reasonable performance, especially considering that GRU is adept at handling sequential data and can capture temporal dependencies.
+  ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/b504c7ff-5dd2-4db2-9ad6-241d103da5dc)
+
 
 - **k-Nearest Neighbors (kNN)**: The kNN model achieved an accuracy of 50%, which is on the lower end compared to deep learning models. This might be due to the high dimensionality of the data or the simplicity of the kNN algorithm, which relies on distance metrics for classification.
+   ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/bcd713bc-b73a-4914-b60c-e5b174bae1bd)
+
 
 - **XGBoost**: The document does not provide a specific accuracy for the XGBoost model, but as an optimized gradient boosting algorithm, it's typically known for its performance in various machine learning tasks.
-
+   ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/9f63ddff-4b06-449a-a786-6a33c3a29195)
+  
 - **Bi-Directional LSTM**: The Bi-Directional LSTM, which utilizes two LSTM layers to process data from both past and future states, is expected to perform well on sequential data like text. However, the document does not specify its accuracy.
+  ![image](https://github.com/kashyapHebbar/NaturalLanguage/assets/65105317/00957567-7351-4228-acbd-c2dfdafb900c)
+
 
 In summary, the deep learning models, particularly the GRU, showed promising results, while traditional machine learning models like Random Forest and kNN displayed lower accuracy. The CNN's performance varied significantly depending on the specific implementation and choice of loss function. The document suggests that all models could potentially benefit from hyperparameter tuning and further refinement of their architectures.
 
