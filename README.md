@@ -80,7 +80,41 @@ cd go_emotions_serving 2
 
 ## Methodology
 
-A brief overview of your method. For example, if you used a specific machine learning model, preprocessing steps, feature extraction, etc. 
+
+1. **Preprocessing**:
+   - **Text Vectorization**: The text data is transformed into a numerical format using `TfidfVectorizer`, which suggests that Term Frequency-Inverse Document Frequency (TF-IDF) is used to give more weight to unique words in the documents.
+   - **Stop-word Removal**: Common words that are typically considered noise in text data (stop-words) are removed to focus on more meaningful words.
+   - **Lemmatization**: This step is implied to standardize words to their base or root form, which helps in reducing the complexity of the text data.
+
+2. **Feature Extraction**:
+   - **TF-IDF Representation**: This is used to convert text data into a matrix of TF-IDF features, which reflects how important a word is to a document in a collection or corpus.
+   - **Word Embeddings**: There is a mention of using Word2Vec to create word embeddings, which suggests that the project also explores dense vector representations of words that capture the context of a word in a document.
+
+3. **Modeling**:
+1. **Topic Modeling Techniques**:
+   - **Latent Semantic Analysis (LSA)**: This technique is used for extracting and representing the contextual-usage meaning of words by statistical computations applied to a large corpus of text. LSA is based on singular value decomposition (SVD) which reduces the dimensionality of the TF-IDF matrix, capturing the underlying structure in the data.
+   - **Latent Dirichlet Allocation (LDA)**: LDA is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. It's particularly used for identifying topics in a set of documents, assuming that each document is a mixture of a small number of topics.
+   - **Non-negative Matrix Factorization (NMF)**: NMF is a group of algorithms in multivariate analysis where a matrix V is factorized into (usually) two matrices W and H, with the property that all three matrices have no negative elements. This non-negativity makes the resulting matrices easier to inspect.
+
+2. **Classification Models**:
+   - **Logistic Regression**: A statistical model that in its basic form uses a logistic function to model a binary dependent variable, although many more complex extensions exist. In the context of text classification, logistic regression can be used to predict the probability that a given text belongs to a certain category.
+   - **k-Nearest Neighbors (kNN)**: A non-parametric method used for classification and regression. In kNN classification, the output is a class membership. An object is classified by a plurality vote of its neighbors, with the object being assigned to the class most common among its k nearest neighbors.
+   - **1-Dimensional Convolutional Neural Network (1D CNN)**: A type of neural network that is particularly well-suited for processing sequences of data. For text, 1D CNNs can capture the spatial hierarchy in data by applying convolutional layers to the sequence, allowing the model to detect complex patterns such as phrases or sentences.
+
+4. **Model Evaluation**:
+   - **Accuracy and F1 Score**: These metrics are used to evaluate the overall performance of the models.
+   - **Classification Report**: Provides detailed performance metrics for each class, including precision, recall, and F1 score.
+   - **Confusion Matrix**: Visualizes the performance of the classification model, showing the correct and incorrect predictions across different classes.
+
+5. **Hyperparameter Tuning**:
+   - **Optimization**: For kNN, the optimal number of neighbors is determined by iterating through a range of values and evaluating the accuracy.
+   - **Fine-tuning**: The LDA model is fine-tuned by adjusting hyperparameters to better capture the underlying topics in the dataset.
+
+6. **Visualization**:
+   - **Box Plots**: Used to visualize the distribution of topic weights for the topic modeling methods, which helps in understanding the importance of each topic in the dataset.
+   - **Word Importance**: For LDA, the top words for each topic are displayed, providing insights into the prevalent themes.
+
+The methodology combines traditional machine learning techniques with more advanced models and a variety of preprocessing and feature extraction methods to analyze text data effectively. The approach is systematic and iterative, with an emphasis on both model performance and the interpretability of results.
 
 ## Results
 
